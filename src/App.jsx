@@ -554,63 +554,146 @@ const ToolsSection = () => {
 };
 
 const ProjectsSection = () => {
+  const projects = [
+    {
+      title: "SwapSkill AI",
+      subtitle: "Devpost Platform",
+      description:
+        "A comprehensive project focused on skill-sharing and AI-assisted collaboration. The platform seamlessly connects users who want to exchange knowledge and skills efficiently, fostering a community of mutual growth.",
+      tech: ["React", "HTML", "CSS", "Bootstrap", "JavaScript"],
+      features: [
+        "Responsive UI",
+        "Skill-sharing platform",
+        "Interactive frontend",
+      ],
+      github: "https://github.com/Vijayabaskar10/SkillSwap-ai",
+      gradient: "from-white to-gray-500",
+      accent: "text-purple-500",
+      leftBg: "bg-[#0a0f24]",
+    },
+    {
+      title: "Intelligent Network Traffic Monitor",
+      subtitle: "Cybersecurity & Network Monitoring",
+      description:
+        "An advanced real-time network traffic monitoring and threat analysis platform designed to detect suspicious activities, monitor packet flow, and visualize network behavior. The system helps identify anomalies, malicious traffic, and security threats using intelligent monitoring techniques.",
+      tech: [
+        "Python",
+        "Flask",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Wireshark",
+        "Scapy",
+      ],
+      features: [
+        "Real-time traffic monitoring",
+        "Threat detection simulation",
+        "Packet analysis dashboard",
+        "Network anomaly detection",
+        "Security alert visualization",
+        "Interactive web interface",
+      ],
+      github:
+        "https://github.com/Vijayabaskar10/Intelligent-Traffic-Monitor",
+      gradient: "from-cyan-300 to-blue-600",
+      accent: "text-cyan-400",
+      leftBg: "bg-[#07111f]",
+    },
+  ];
+
   return (
     <section id="Projects" className="py-24 relative">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <SectionHeading title="Featured Project" subtitle="Real-world implementation" />
+        <SectionHeading
+          title="Featured Projects"
+          subtitle="Real-world implementations"
+        />
 
-        <FadeIn delay={0.2}>
-          <TiltCard>
-            <div className="relative bg-[#111827] rounded-3xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all shadow-2xl flex flex-col md:flex-row group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="space-y-12">
+          {projects.map((project, index) => (
+            <FadeIn key={index} delay={0.2 + index * 0.2}>
+              <TiltCard>
+                <div className="relative bg-[#111827] rounded-3xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all shadow-2xl flex flex-col md:flex-row group">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="w-full md:w-5/12 bg-[#0a0f24] p-12 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                <h3 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500 z-10 group-hover:scale-110 transition-transform duration-500">
-                  SwapSkill <span className="text-purple-500">AI</span>
-                </h3>
-              </div>
+                  <div
+                    className={`w-full md:w-5/12 ${project.leftBg} p-12 flex items-center justify-center relative overflow-hidden`}
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
 
-              <div className="w-full md:w-7/12 p-8 md:p-12 z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">SwapSkill AI</h3>
-                  <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold border border-purple-500/30 uppercase tracking-wide">Devpost Platform</span>
-                </div>
-                
-                <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                  A comprehensive project focused on <span className="text-white font-semibold">skill-sharing and AI-assisted collaboration</span>. The platform seamlessly connects users who want to exchange knowledge and skills efficiently, fostering a community of mutual growth.
-                </p>
+                    <h3
+                      className={`text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br ${project.gradient} z-10 text-center group-hover:scale-110 transition-transform duration-500`}
+                    >
+                      {project.title}
+                    </h3>
+                  </div>
 
-                <div className="mb-8">
-                  <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">Tech Stack</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {["React", "HTML", "CSS", "Bootstrap", "JavaScript"].map((tech, i) => (
-                      <span key={i} className="px-4 py-1.5 bg-[#050816] border border-cyan-800 text-cyan-300 rounded-full text-sm font-medium shadow-[0_0_10px_rgba(0,240,255,0.1)]">
-                        {tech}
+                  <div className="w-full md:w-7/12 p-8 md:p-12 z-10">
+                    <div className="flex justify-between items-start mb-4 flex-wrap gap-4">
+                      <h3
+                        className={`text-3xl font-bold text-white group-hover:${project.accent} transition-colors`}
+                      >
+                        {project.title}
+                      </h3>
+
+                      <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-bold border border-purple-500/30 uppercase tracking-wide">
+                        {project.subtitle}
                       </span>
-                    ))}
+                    </div>
+
+                    <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="mb-8">
+                      <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">
+                        Tech Stack
+                      </h4>
+
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-4 py-1.5 bg-[#050816] border border-cyan-800 text-cyan-300 rounded-full text-sm font-medium shadow-[0_0_10px_rgba(0,240,255,0.1)]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mb-8">
+                      <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">
+                        Key Features
+                      </h4>
+
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-300">
+                        {project.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_5px_#00f0ff]"></div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex gap-4 flex-wrap">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
+                      >
+                        <Icons.Github className="w-5 h-5" />
+                        View Repository
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-                <div className="mb-8">
-                  <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-3 font-semibold">Key Features</h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-300">
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shadow-[0_0_5px_#a855f7]"></div> Responsive UI</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-cyan-500 rounded-full shadow-[0_0_5px_#00f0ff]"></div> Skill-sharing platform</li>
-                    <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full shadow-[0_0_5px_#a855f7]"></div> Interactive frontend</li>
-                  </ul>
-                </div>
-
-                <div className="flex gap-4">
-                  <a href="https://github.com/Vijayabaskar10/SkillSwap-ai" target="_blank" rel="noopener noreferrer" 
-                     className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors">
-                    <Icons.Github className="w-5 h-5" /> View Repository
-                  </a>
-                </div>
-              </div>
-            </div>
-          </TiltCard>
-        </FadeIn>
+              </TiltCard>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
